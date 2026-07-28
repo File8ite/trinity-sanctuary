@@ -1,0 +1,101 @@
+/* ==========================================
+   RCCG Trinity Sanctuary Design System
+   ========================================== */
+
+/* Google Fonts
+   Poppins - Headings
+   Inter - Body Text
+*/
+
+:root {
+
+  /* ===========================
+     COLORS
+  =========================== */
+
+  --clr-primary: #003A70;
+  --clr-primary-dark: #002B55;
+
+  --clr-secondary: #C8102E;
+  --clr-secondary-dark: #A10E26;
+
+  --clr-white: #FFFFFF;
+  --clr-light: #F7F9FC;
+
+  --clr-text: #222222;
+  --clr-text-light: #6B7280;
+
+  --clr-border: #E5E7EB;
+
+  --clr-success: #16A34A;
+
+  /* ===========================
+     TYPOGRAPHY
+  =========================== */
+
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Font Sizes */
+
+  --fs-900: 4rem;
+  --fs-800: 3rem;
+  --fs-700: 2.5rem;
+  --fs-600: 2rem;
+  --fs-500: 1.5rem;
+  --fs-400: 1.125rem;
+  --fs-300: 1rem;
+  --fs-200: .875rem;
+
+  /* Font Weight */
+
+  --fw-light:300;
+  --fw-regular:400;
+  --fw-medium:500;
+  --fw-semibold:600;
+  --fw-bold:700;
+
+  /* ===========================
+     SPACING
+  =========================== */
+
+  --space-xs:.5rem;
+  --space-sm:1rem;
+  --space-md:1.5rem;
+  --space-lg:2rem;
+  --space-xl:4rem;
+  --space-2xl:6rem;
+  --space-3xl:8rem;
+
+  /* ===========================
+     LAYOUT
+  =========================== */
+
+  --container-width:1200px;
+
+  /* ===========================
+     RADIUS
+  =========================== */
+
+  --radius-sm:6px;
+  --radius-md:12px;
+  --radius-lg:18px;
+  --radius-xl:24px;
+
+  /* ===========================
+     SHADOWS
+  =========================== */
+
+  --shadow-sm:0 2px 10px rgba(0,0,0,.08);
+
+  --shadow-md:0 10px 30px rgba(0,0,0,.10);
+
+  --shadow-lg:0 20px 50px rgba(0,0,0,.15);
+
+  /* ===========================
+     TRANSITIONS
+  =========================== */
+
+  --transition:.3s ease-in-out;
+
+}

@@ -1,0 +1,2844 @@
+/* ==========================================
+   GLOBAL IMPORTS
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@import url("variables.css");
+
+
+
+/* ==========================================
+   ROOT SYSTEM
+========================================== */
+
+:root{
+
+    --section-space:clamp(4rem,7vw,6rem);
+
+    --card-radius:22px;
+
+    --soft-shadow:
+    0 15px 40px rgba(0,0,0,.08);
+
+    --hover-shadow:
+    0 25px 60px rgba(0,0,0,.15);
+
+}
+
+
+
+/* ==========================================
+   RESET
+========================================== */
+
+
+*,
+*::before,
+*::after{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+
+body{
+
+    font-family:var(--font-body);
+
+    color:var(--clr-text);
+
+    background:white;
+
+    line-height:1.7;
+
+    overflow-x:hidden;
+
+}
+
+
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+
+
+ul{
+
+    list-style:none;
+
+}
+
+
+
+button,
+input,
+textarea{
+
+    font:inherit;
+
+}
+
+
+
+/* ==========================================
+   GLOBAL SECTIONS
+========================================== */
+
+
+section{
+
+    padding:var(--section-space) 0;
+
+}
+
+
+
+/* ==========================================
+   TYPOGRAPHY
+========================================== */
+
+
+h1,
+h2,
+h3,
+h4{
+
+    font-family:var(--font-heading);
+
+    color:var(--clr-primary);
+
+    line-height:1.2;
+
+}
+
+
+
+h1{
+
+    font-size:clamp(2.3rem,5vw,5rem);
+
+}
+
+
+
+h2{
+
+    font-size:clamp(2rem,3.5vw,3rem);
+
+}
+
+
+
+h3{
+
+    font-size:1.35rem;
+
+}
+
+
+
+p{
+
+    color:var(--clr-text-light);
+
+}
+
+
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+
+.container{
+
+    width:min(90%,1200px);
+
+    margin-inline:auto;
+
+}
+
+
+
+/* ==========================================
+   BUTTON SYSTEM
+========================================== */
+
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:.5rem;
+
+    padding:.9rem 1.8rem;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+    transition:.3s ease;
+
+}
+
+
+
+.btn-primary{
+
+    background:var(--clr-primary);
+
+    color:white;
+
+}
+
+
+
+.btn-primary:hover{
+
+    background:var(--clr-primary-dark);
+
+    transform:translateY(-3px);
+
+}
+
+
+
+.btn-secondary{
+
+    background:var(--clr-secondary);
+
+    color:white;
+
+}
+
+
+
+.btn-secondary:hover{
+
+    background:var(--clr-secondary-dark);
+
+    transform:translateY(-3px);
+
+}
+
+
+
+/* ==========================================
+   MODERN FLOATING HEADER & NAVIGATION
+   ========================================== */
+
+/* Top Micro Announcement Bar */
+.top-bar {
+    background: #001730;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.78rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.35s ease;
+}
+
+.top-bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.top-info span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.top-info i {
+    color: var(--clr-secondary);
+}
+
+.top-social {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.top-social a {
+    color: rgba(255, 255, 255, 0.7);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    transition: all 0.25s ease;
+}
+
+.top-social a:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Header Outer Wrapper */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.35s ease;
+}
+
+.header.scrolled .top-bar {
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+/* Glassmorphism Floating Navbar */
+.navbar {
+    height: 80px;
+    transition: all 0.35s ease;
+}
+
+.navbar-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 12px 35px rgba(0, 34, 68, 0.08);
+    border-radius: 60px;
+    padding: 0 1.8rem;
+    margin-top: 10px;
+    transition: all 0.35s ease;
+}
+
+.header.scrolled .navbar-container {
+    margin-top: 0;
+    border-radius: 0;
+    width: 100%;
+    max-width: 100%;
+    border-inline: none;
+    border-top: none;
+    box-shadow: 0 10px 30px rgba(0, 34, 68, 0.12);
+}
+
+/* Modern Logo Cluster */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+}
+
+.logo-image {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: contain;
+    border: 2px solid rgba(200, 16, 46, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 34, 68, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-image {
+    transform: scale(1.05);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.church-name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.1;
+    color: var(--clr-primary);
+    letter-spacing: -0.2px;
+}
+
+.church-badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--clr-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Modern Capsule Nav Menu */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    font-weight: 500;
+    font-size: 0.92rem;
+    color: var(--clr-text);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-menu a:hover {
+    color: var(--clr-primary);
+    background: rgba(0, 34, 68, 0.06);
+}
+
+.nav-menu a.active {
+    color: white !important;
+    background: var(--clr-primary);
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(0, 34, 68, 0.25);
+}
+
+/* Action Button & Toggle Cluster */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-btn {
+    padding: 0.65rem 1.4rem;
+    font-size: 0.88rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 6px 18px rgba(0, 34, 68, 0.15);
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 34, 68, 0.25);
+}
+
+.menu-toggle {
+    display: none;
+    background: rgba(0, 34, 68, 0.06);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    color: var(--clr-primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+    background: var(--clr-primary);
+    color: white;
+}
+
+}
+
+
+
+.nav-btn{
+
+    margin-left:1rem;
+
+}
+
+
+
+.menu-toggle{
+
+    display:none;
+
+    font-size:1.8rem;
+
+    color:var(--clr-primary);
+
+}
+
+
+
+/* ==========================================
+   HERO
+========================================== */
+
+
+#hero{
+
+    min-height:100svh;
+
+    display:flex;
+
+    align-items:center;
+
+    position:relative;
+
+    background:
+
+    url("../assets/images/hero.jpg")
+
+    center/cover no-repeat;
+
+}
+
+
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+    rgba(0,25,55,.75),
+
+    rgba(0,25,55,.75)
+
+    );
+
+}
+
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:700px;
+
+    padding-top:5rem;
+
+}
+
+.hero-tag{
+
+    display:inline-block;
+
+    padding:.5rem 1rem;
+
+    margin-bottom:1.2rem;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:999px;
+
+    color:white;
+
+    font-size:.85rem;
+
+}
+
+
+
+.hero-content h1{
+
+    color:white;
+
+    font-size:clamp(2rem,4vw,4.8rem);
+
+    margin-bottom:1.3rem;
+
+}
+
+
+
+.hero-content p{
+
+    color:rgba(255,255,255,.9);
+
+    font-size:1.1rem;
+
+    max-width:620px;
+
+    margin-bottom:2rem;
+
+}
+
+
+
+.hero-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:1rem;
+
+}
+
+
+
+.scroll-down{
+
+    position:absolute;
+
+    bottom:30px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:white;
+
+    font-size:1.8rem;
+
+    animation:bounce 2s infinite;
+
+}
+
+
+
+@keyframes bounce{
+
+    50%{
+
+        transform:translate(-50%,-15px);
+
+    }
+
+}
+
+
+
+/* ==========================================
+   WELCOME
+========================================== */
+
+
+#welcome{
+
+    background:white;
+
+}
+
+
+
+.welcome-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:4rem;
+
+    align-items:center;
+
+}
+
+
+
+.section-tag{
+
+    display:inline-block;
+
+    padding:.5rem 1rem;
+
+    border-radius:999px;
+
+    background:rgba(200,16,46,.08);
+
+    color:var(--clr-secondary);
+
+    font-size:.8rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+}
+
+
+
+.welcome-content h2{
+
+    margin:1rem 0;
+
+}
+
+
+
+.welcome-content p{
+
+    margin-bottom:1.5rem;
+
+    max-width:550px;
+
+}
+
+
+
+.welcome-features{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:1rem;
+
+}
+
+
+
+.feature{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.7rem;
+
+}
+
+
+
+.feature i{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    background:var(--clr-primary);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+
+.welcome-image{
+
+    height:450px;
+
+    border-radius:var(--card-radius);
+
+    overflow:hidden;
+
+    box-shadow:var(--soft-shadow);
+
+}
+
+
+
+.welcome-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+
+
+.welcome-image:hover img{
+
+    transform:scale(1.05);
+
+}
+
+/* ==========================================
+   WHY TRINITY SANCTUARY
+========================================== */
+
+
+#why-us{
+
+    background:var(--clr-light);
+
+}
+
+
+
+.section-header{
+
+    max-width:700px;
+
+    margin:0 auto 3rem;
+
+    text-align:center;
+
+}
+
+
+
+.section-header h2{
+
+    margin:1rem 0;
+
+}
+
+
+
+.section-header p{
+
+    font-size:1rem;
+
+}
+
+
+
+.cards-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:1.5rem;
+
+}
+
+
+
+.card{
+
+    background:white;
+
+    padding:2rem 1.5rem;
+
+    border-radius:var(--card-radius);
+
+    text-align:center;
+
+    box-shadow:var(--soft-shadow);
+
+    transition:.35s ease;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--hover-shadow);
+
+}
+
+
+
+.card-icon{
+
+    width:65px;
+
+    height:65px;
+
+    margin:0 auto 1.3rem;
+
+    border-radius:50%;
+
+    background:rgba(0,58,112,.1);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--clr-primary);
+
+    font-size:1.5rem;
+
+}
+
+
+
+.card h3{
+
+    margin-bottom:.8rem;
+
+}
+
+
+
+.card p{
+
+    font-size:.95rem;
+
+}
+
+
+
+/* ==========================================
+   THIS WEEK AT TRINITY
+========================================== */
+
+
+#this-week{
+
+    background:#f7f9fc;
+
+}
+
+
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.2rem;
+    margin-top: 3.5rem;
+}
+
+.service-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0, 34, 68, 0.08);
+    transition: transform .4s ease, box-shadow .4s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 34, 68, 0.16);
+}
+
+.service-image {
+    height: 270px;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease;
+}
+
+.service-card:hover .service-image img {
+    transform: scale(1.08);
+}
+
+.service-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 34, 68, 0.55), transparent);
+}
+
+.featured-badge {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    z-index: 2;
+    background: var(--clr-secondary);
+    color: white;
+    padding: 0.45rem 1rem;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.service-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.service-content h3 {
+    font-size: 1.55rem;
+    color: var(--clr-primary);
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+}
+
+.service-time {
+    color: var(--clr-secondary);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.service-content p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--clr-primary);
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin-top: auto;
+}
+
+.service-link i {
+    transition: transform 0.3s ease;
+}
+
+.service-link:hover {
+    color: var(--clr-secondary);
+}
+
+.service-link:hover i {
+    transform: translateX(5px);
+}
+
+.service-featured {
+    border: 2px solid var(--clr-secondary);
+}
+
+
+
+/* ==========================================
+   LEADERSHIP
+========================================== */
+
+
+#leadership{
+
+    background:white;
+
+}
+
+
+
+.leadership-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:2rem;
+
+}
+
+
+
+.leader-card{
+
+    background:white;
+
+    border-radius:var(--card-radius);
+
+    overflow:hidden;
+
+    box-shadow:var(--soft-shadow);
+
+    transition:.35s;
+
+}
+
+
+
+.leader-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--hover-shadow);
+
+}
+
+
+
+.leader-image{
+
+    height:430px;
+
+    background:#f4f4f4;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+}
+
+
+
+.leader-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+
+
+.leader-content{
+
+    padding:1.8rem;
+
+}
+
+
+
+.leader-role{
+
+    display:inline-block;
+
+    padding:.4rem .9rem;
+
+    background:rgba(200,16,46,.08);
+
+    color:var(--clr-secondary);
+
+    border-radius:50px;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+}
+
+
+
+.leader-content h3{
+
+    margin:1rem 0;
+
+}
+
+
+
+.leader-content p{
+
+    line-height:1.8;
+
+}
+
+
+
+/* ==========================================
+   MINISTRIES
+========================================== */
+
+
+#ministries{
+
+    background:#f7f9fc;
+
+}
+
+
+
+.ministries-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:1.8rem;
+
+}
+
+
+
+.ministry-card{
+
+    background:white;
+
+    border-radius:var(--card-radius);
+
+    overflow:hidden;
+
+    box-shadow:var(--soft-shadow);
+
+    transition:.35s;
+
+}
+
+
+
+.ministry-card:hover{
+
+    transform:translateY(-7px);
+
+    box-shadow:var(--hover-shadow);
+
+}
+
+
+
+.slider{
+
+    height:230px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+
+.slider-image{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center;
+
+    opacity:0;
+
+    transition:
+
+    opacity .8s ease,
+
+    transform 8s ease;
+
+}
+
+
+
+.slider-image.active{
+
+    opacity:1;
+
+    transform:scale(1.04);
+
+}
+
+
+
+.slider::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+    to top,
+
+    rgba(0,34,68,.55),
+
+    transparent
+
+    );
+
+}
+
+
+
+.ministry-badge{
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    z-index:5;
+
+    color:white;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(10px);
+
+    padding:.4rem .8rem;
+
+    border-radius:50px;
+
+    font-size:.7rem;
+
+}
+
+
+
+.ministry-content{
+
+    padding:1.4rem 1.5rem;
+
+}
+
+
+
+.ministry-content h3{
+
+    margin-bottom:.6rem;
+
+}
+
+
+
+.ministry-content p{
+
+    font-size:.95rem;
+
+}
+
+
+
+/* ==========================================
+   EVENTS
+========================================== */
+
+
+#events{
+
+    background:white;
+
+}
+
+
+
+.events-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:1.5rem;
+
+}
+
+
+
+.event-card{
+
+    background:white;
+
+    padding:1.8rem;
+
+    border-radius:var(--card-radius);
+
+    box-shadow:var(--soft-shadow);
+
+    transition:.35s;
+
+}
+
+
+
+.event-card:hover{
+
+    transform:translateY(-7px);
+
+    box-shadow:var(--hover-shadow);
+
+}
+
+
+
+.event-date{
+
+    width:75px;
+
+    height:85px;
+
+    background:var(--clr-primary);
+
+    color:white;
+
+    border-radius:15px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:1rem;
+
+}
+
+
+
+.month{
+
+    font-size:.75rem;
+
+}
+
+
+
+.day{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+}
+
+
+
+.event-content h3{
+
+    margin:.8rem 0;
+
+}
+
+
+
+.event-category{
+
+    color:var(--clr-secondary);
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+}
+
+
+
+/* ==========================================
+   SERMONS
+========================================== */
+
+
+#sermons{
+
+    background:#f7f9fc;
+
+}
+
+
+
+.sermons-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:1.8rem;
+
+}
+
+
+
+.sermon-card{
+
+    background:white;
+
+    border-radius:var(--card-radius);
+
+    overflow:hidden;
+
+    box-shadow:var(--soft-shadow);
+
+    transition:.35s;
+
+}
+
+
+
+.sermon-card:hover{
+
+    transform:translateY(-7px);
+
+    box-shadow:var(--hover-shadow);
+
+}
+
+
+
+.sermon-thumbnail{
+
+    height:220px;
+
+    position:relative;
+
+}
+
+
+
+.sermon-thumbnail img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+
+.sermon-thumbnail::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,34,68,.35);
+
+}
+
+
+
+.play-button{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.25);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:2;
+
+}
+
+
+
+.sermon-content{
+
+    padding:1.5rem;
+
+}
+
+
+
+.sermon-date{
+
+    color:var(--clr-secondary);
+
+    font-weight:600;
+
+    font-size:.85rem;
+
+}
+
+
+
+.sermon-content h3{
+
+    margin:.7rem 0;
+
+}
+
+/* ==========================================
+   GALLERY
+========================================== */
+
+
+#gallery{
+
+    background:white;
+
+}
+
+
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    grid-auto-rows:220px;
+
+    gap:1rem;
+
+}
+
+
+
+.gallery-item{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+}
+
+
+
+.gallery-item img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.6s ease;
+
+}
+
+
+
+.gallery-item:hover img{
+
+    transform:scale(1.08);
+
+}
+
+
+
+.gallery-item::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+    transparent,
+
+    rgba(0,34,68,.35)
+
+    );
+
+}
+
+
+
+.large{
+
+    grid-column:span 2;
+
+    grid-row:span 2;
+
+}
+
+
+
+.wide{
+
+    grid-column:span 2;
+
+}
+
+
+
+.tall{
+
+    grid-row:span 2;
+
+}
+
+
+
+/* ==========================================
+   PLAN YOUR VISIT
+========================================== */
+
+
+#visit{
+
+    background:#f7f9fc;
+
+}
+
+
+
+.visit-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:4rem;
+
+    align-items:center;
+
+}
+
+
+
+.visit-details{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1.5rem;
+
+}
+
+
+
+.visit-group h3{
+
+    margin-bottom:1rem;
+
+}
+
+
+
+.visit-item{
+
+    display:flex;
+
+    gap:1rem;
+
+    align-items:flex-start;
+
+    margin-bottom:1rem;
+
+}
+
+
+
+.visit-item i{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:var(--clr-primary);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+}
+
+
+
+.visit-item p{
+
+    margin:0;
+
+}
+
+
+
+.visit-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:1rem;
+
+}
+
+
+
+.visit-showcase{
+
+    position:relative;
+
+}
+
+
+
+.visit-image{
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:var(--hover-shadow);
+
+}
+
+
+
+.visit-image img{
+
+    width:100%;
+
+    height:520px;
+
+    object-fit:cover;
+
+}
+
+
+
+.service-card{
+
+    position:absolute;
+
+    left:-35px;
+
+    bottom:-30px;
+
+    width:340px;
+
+    padding:1.8rem;
+
+    background: #ffff;
+
+    border-radius:22px;
+
+    box-shadow:var(--hover-shadow);
+
+}
+
+
+
+.service-card span{
+
+    color:var(--clr-secondary);
+
+    font-weight:700;
+
+    font-size:.75rem;
+
+}
+
+
+
+.service-card h3{
+
+    margin:1rem 0;
+
+}
+
+
+
+.service-card li{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:.7rem 0;
+
+    border-bottom:1px solid #eee;
+
+}
+
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+
+#footer{
+
+    background:#002244;
+
+    color:white;
+
+    padding:5rem 0 1.5rem;
+
+}
+
+
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
+
+    gap:3rem;
+
+}
+
+
+
+.footer-brand h2{
+
+    color:white;
+
+}
+
+
+
+.footer-brand p{
+
+    color:#ddd;
+
+    margin:1.2rem 0;
+
+}
+
+
+
+.footer-social{
+
+    display:flex;
+
+    gap:1rem;
+
+}
+
+
+
+.footer-social a{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.3s;
+
+}
+
+
+
+.footer-social a:hover{
+
+    background:var(--clr-secondary);
+
+}
+
+
+
+.footer-links h3,
+.footer-contact h3{
+
+    color:white;
+
+    margin-bottom:1rem;
+
+}
+
+
+
+.footer-links li{
+
+    margin-bottom:.7rem;
+
+    color:#ddd;
+
+}
+
+
+
+.footer-links a{
+
+    color:#ddd;
+
+}
+
+
+
+.footer-links a:hover{
+
+    color:white;
+
+}
+
+
+
+.footer-contact p{
+
+    display:flex;
+
+    gap:.7rem;
+
+    color:#ddd;
+
+}
+
+
+
+.footer-bottom{
+
+    margin-top:3rem;
+
+    padding-top:1.5rem;
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#bbb;
+
+    font-size:.9rem;
+
+}
+
+
+
+/* ==========================================
+   RESPONSIVE SYSTEM
+========================================== */
+
+
+
+@media(max-width:1200px){
+
+
+    .cards-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+    .footer-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+}
+
+
+
+@media(max-width:992px){
+
+
+    .welcome-grid,
+    .visit-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .leadership-grid,
+    .ministries-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .services-grid,
+    .events-grid,
+    .sermons-grid{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+
+
+    .visit-showcase{
+
+        margin-top:2rem;
+
+    }
+
+
+
+    .service-card{
+
+        position:relative;
+
+        left:0;
+
+        bottom:0;
+
+        width:100%;
+
+        margin-top:1.5rem;
+
+    }
+
+
+}
+
+
+
+@media(max-width:768px){
+
+
+    section{
+
+        padding:4rem 0;
+
+    }
+
+
+
+    .container{
+
+        width:min(92%,1200px);
+
+    }
+
+
+
+    /* NAVIGATION */
+
+
+    .navbar{
+
+        height:75px;
+
+    }
+
+
+
+    .logo-image{
+
+        width:45px;
+
+        height:45px;
+
+    }
+
+
+
+    .church-name{
+
+        font-size:1rem;
+
+    }
+
+
+
+    .nav-menu{
+        position: fixed;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        border-bottom: 3px solid var(--clr-secondary);
+        transform: translateY(-150%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform .35s ease, opacity .35s ease, visibility .35s ease;
+        z-index: 999;
+    }
+
+    .nav-menu.open{
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+
+
+    /* HERO */
+
+
+    #hero{
+
+        min-height:85svh;
+
+    }
+
+
+
+    .hero-content{
+
+        padding-top:3rem;
+
+    }
+
+
+
+    .hero-content h1{
+
+        font-size:clamp(2rem,8vw,3rem);
+
+    }
+
+
+
+    .hero-content p{
+
+        font-size:1rem;
+
+    }
+
+
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+
+
+    /* FEATURES */
+
+
+    .welcome-features{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .cards-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .services-grid,
+    .events-grid,
+    .sermons-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    /* IMAGES */
+
+
+    .welcome-image{
+
+        height:350px;
+
+    }
+
+
+
+    .leader-image{
+
+        height:350px;
+
+    }
+
+
+
+    .slider{
+
+        height:210px;
+
+    }
+
+
+
+    .gallery-grid{
+
+        grid-template-columns:1fr;
+
+        grid-auto-rows:220px;
+
+    }
+
+
+
+    .large,
+    .wide,
+    .tall{
+
+        grid-column:span 1;
+
+        grid-row:span 1;
+
+    }
+
+
+
+    .visit-image img{
+
+        height:350px;
+
+    }
+
+
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        gap:.5rem;
+
+    }
+
+
+}
+
+
+
+@media(max-width:480px){
+
+
+    .church-location{
+
+        display:none;
+
+    }
+
+
+
+    .hero-buttons .btn{
+
+        width:100%;
+
+    }
+
+
+
+    .leader-content,
+    .service-content,
+    .ministry-content{
+
+        padding:1.2rem;
+
+    }
+
+
+}
+
+/* ==========================================
+   THIS WEEK AT TRINITY
+========================================== */
+
+#this-week{
+
+    background:#f7f9fc;
+
+}
+
+
+.services-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:1.5rem;
+
+    margin-top:3rem;
+
+}
+
+
+.service-card{
+
+    position:relative;
+
+    height:320px;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    background: #002244;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+    transition:.35s ease;
+
+}
+
+
+.service-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+.service-image{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+
+
+.service-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+
+.service-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        to top,
+
+        rgba(0,34,68,.85),
+
+        rgba(0,34,68,.15)
+
+    );
+
+}
+
+
+
+.service-content{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    padding:2rem;
+
+    color:white;
+
+    z-index:2;
+
+}
+
+
+
+.service-content h3{
+
+    color:white;
+
+    margin-bottom:.5rem;
+
+}
+
+
+
+.service-time{
+
+    color:#fff;
+
+    font-weight:700;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.5rem;
+
+}
+
+.social-title{
+
+    display:block;
+
+    color:#ddd;
+
+    font-size:.85rem;
+
+    margin-bottom:1rem;
+
+    font-weight:600;
+
+}
+
+
+.footer-social a{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+
+    transition:.3s ease;
+
+}
+
+
+.footer-social a:hover{
+
+    transform:translateY(-5px);
+
+    background:var(--clr-secondary);
+
+}
+
+
+@media(max-width:992px){
+
+    .services-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:768px){
+
+    .services-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .service-card{
+        height:280px;
+    }
+}
+
+/* ==========================================
+   GLOBAL INTERACTIVE UPGRADES
+   ========================================== */
+
+/* 1. Back To Top Floating Action */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--clr-secondary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 10px 25px rgba(200, 16, 46, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.35s ease;
+    z-index: 999;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--clr-primary);
+    transform: translateY(-5px);
+}
+
+/* 2. Service Countdown Widget Banner */
+.service-countdown-banner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 1.5rem;
+    width: fit-content;
+    color: white;
+}
+
+.service-countdown-banner label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #ffd700;
+}
+
+.countdown-timer {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.cd-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 32px;
+}
+
+.cd-number {
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.cd-label {
+    font-size: 0.65rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+/* 3. Toast Notification */
+.toast-notification {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: white;
+    color: var(--clr-text);
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-left: 5px solid var(--clr-success);
+    transform: translateY(100px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 9999;
+}
+
+.toast-notification.show {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.toast-notification i {
+    font-size: 1.8rem;
+    color: var(--clr-success);
+}
+
+.toast-notification strong {
+    display: block;
+    font-size: 0.95rem;
+}
+
+.toast-notification p {
+    font-size: 0.85rem;
+    margin: 0;
+    color: var(--clr-text-light);
+}
+
+/* 4. Video Modal */
+.video-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s ease;
+}
+
+.video-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.video-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    background: #000;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+}
+
+.close-video-modal {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 600px) {
+    .service-countdown-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        border-radius: 16px;
+    }
+    .toast-notification {
+        left: 15px;
+        right: 15px;
+        bottom: 20px;
+    }
+}
+
+

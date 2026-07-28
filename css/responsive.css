@@ -1,0 +1,374 @@
+/* ==========================================================================
+   RCCG TRINITY SANCTUARY — MASTER RESPONSIVE SYSTEM
+   Target Breakpoints:
+   - Ultra Wide / 4K Desktop: 1440px+
+   - Desktop / Laptop: 1024px – 1439px
+   - Tablet / Medium Screen: 768px – 1023px
+   - Large Phone / Phablet: 481px – 767px
+   - Small Phone: 320px – 480px
+   ========================================================================== */
+
+/* ==========================================================================
+   1. GLOBAL & CONTAINER POLISH
+   ========================================================================== */
+
+img, video, iframe {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Face cropping optimization for all leadership & profile images */
+.leader-image img,
+.leader-card img,
+.leader-profile img,
+.profile-card img,
+.author-image img {
+    object-fit: cover !important;
+    object-position: center top !important;
+}
+
+/* Fluid Container Scaling */
+.container {
+    width: min(92%, 1240px);
+    margin-inline: auto;
+}
+
+/* Uniform Card Alignment */
+.card, 
+.service-card, 
+.sermon-card, 
+.ministry-card, 
+.event-card, 
+.value-card, 
+.time-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-content, 
+.service-content, 
+.sermon-content, 
+.ministry-content, 
+.leader-info, 
+.event-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-content .btn,
+.service-content .btn,
+.sermon-content .btn,
+.sermon-content a,
+.ministry-content a,
+.leader-info .leader-social {
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   2. DESKTOP & LARGE SCREENS (1024px+)
+   ========================================================================== */
+
+@media (min-width: 1024px) {
+    .hero-content h1,
+    .about-hero h1,
+    .leadership-hero h1,
+    .ministry-hero h1,
+    .sermon-hero h1,
+    .events-hero h1,
+    .gallery-hero h1,
+    .contact-hero h1 {
+        font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+    }
+}
+
+/* ==========================================================================
+   3. TABLETS & SMALL LAPTOPS (768px - 1023px)
+   ========================================================================== */
+
+@media (max-width: 1023px) {
+    section {
+        padding: clamp(3.5rem, 6vw, 5rem) 0;
+    }
+
+    /* Grid layout standard adjustments for tablets */
+    .cards-grid,
+    .services-grid,
+    .events-grid,
+    .sermons-grid,
+    .ministries-grid,
+    .values-grid,
+    .times-grid,
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem;
+    }
+
+    .story-grid,
+    .welcome-grid,
+    .visit-grid,
+    .featured-wrapper,
+    .sermon-feature,
+    .message-grid,
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem;
+    }
+
+    /* Height adjustments */
+    .welcome-image,
+    .story-image,
+    .message-image,
+    .featured-image,
+    .sermon-video {
+        height: 380px !important;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2.5rem;
+    }
+}
+
+/* ==========================================================================
+   4. NAVIGATION DRAWER & MOBILE BAR (max-width: 992px)
+   ========================================================================== */
+
+@media (max-width: 992px) {
+    .nav-menu {
+        position: fixed;
+        top: 85px;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        flex-direction: column;
+        align-items: center;
+        padding: 2.2rem 1.5rem;
+        gap: 0.8rem;
+        box-shadow: 0 20px 40px rgba(0, 34, 68, 0.15);
+        border-bottom: 3px solid var(--clr-secondary);
+        transform: translateY(-160%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform .35s ease, opacity .35s ease, visibility .35s ease;
+        z-index: 999;
+    }
+
+    .nav-menu a {
+        width: 100%;
+        text-align: center;
+        font-size: 1.05rem;
+        padding: 0.7rem 1.5rem;
+    }
+
+    .nav-menu.open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .menu-toggle {
+        display: flex !important;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   5. MOBILE & PHABLETS (max-width: 768px)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .top-bar {
+        display: none;
+    }
+
+    .navbar {
+        height: 70px;
+    }
+
+    .navbar-container {
+        margin-top: 5px;
+        padding: 0 1.2rem;
+        border-radius: 40px;
+    }
+
+    .logo-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .church-name {
+        font-size: 1rem;
+    }
+
+    .church-badge {
+        font-size: 0.62rem;
+    }
+
+    .nav-menu {
+        top: 75px;
+    }
+
+    /* Heroes */
+    #hero,
+    .about-hero,
+    .leadership-hero,
+    .ministry-hero,
+    .sermon-hero,
+    .events-hero,
+    .gallery-hero,
+    .contact-hero {
+        padding: 7.5rem 0 3.5rem !important;
+        min-height: auto;
+    }
+
+    /* Single column grids for mobile */
+    .cards-grid,
+    .services-grid,
+    .events-grid,
+    .sermons-grid,
+    .ministries-grid,
+    .values-grid,
+    .times-grid,
+    .leaders-grid,
+    .mission-grid,
+    .category-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.2rem;
+    }
+
+    /* Card image height optimization */
+    .card-image,
+    .sermon-image,
+    .ministry-image,
+    .sermon-thumbnail {
+        height: 220px !important;
+    }
+
+    .welcome-image,
+    .story-image,
+    .message-image,
+    .featured-image,
+    .sermon-video,
+    .leader-image {
+        height: 300px !important;
+    }
+
+    /* Gallery Grid for mobile */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-auto-rows: 180px !important;
+        gap: 0.8rem;
+    }
+
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(6) {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+    }
+
+    /* Footer on mobile */
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+    }
+
+    .footer-brand,
+    .footer-links,
+    .footer-contact {
+        text-align: left;
+    }
+}
+
+/* ==========================================================================
+   6. SMALL PHONES (max-width: 480px)
+   ========================================================================== */
+
+@media (max-width: 480px) {
+    .container {
+        width: min(94%, 1200px);
+    }
+
+    .church-location {
+        display: none;
+    }
+
+    /* Fluid typography scaling down */
+    h1 {
+        font-size: clamp(1.75rem, 7vw, 2.3rem) !important;
+    }
+
+    h2 {
+        font-size: clamp(1.5rem, 6vw, 1.85rem) !important;
+    }
+
+    h3 {
+        font-size: 1.2rem !important;
+    }
+
+    /* Button full width on phones */
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn,
+    .cta-box .btn,
+    .about-cta .btn,
+    .serve-box .btn,
+    .event-cta .btn,
+    .sermon-cta .btn,
+    .contact-form button {
+        width: 100%;
+        min-height: 48px;
+    }
+
+    /* Touch target optimizations */
+    .footer-social a,
+    .leader-social a,
+    .top-social a {
+        width: 44px;
+        height: 44px;
+    }
+
+    /* Image heights for small screens */
+    .welcome-image,
+    .story-image,
+    .message-image,
+    .featured-image,
+    .sermon-video,
+    .leader-image {
+        height: 240px !important;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr !important;
+        grid-auto-rows: 220px !important;
+    }
+
+    .contact-form {
+        padding: 1.5rem 1rem !important;
+    }
+
+    .map-section {
+        height: 280px !important;
+    }
+}
