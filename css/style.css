@@ -429,7 +429,7 @@ p{
 
 .nav-menu a:hover {
     color: var(--clr-primary);
-    background: rgba(0, 34, 68, 0.06);
+    background: rgba(132, 15, 15, 0.06);
 }
 
 .nav-menu a.active {
@@ -482,7 +482,7 @@ p{
     color: white;
 }
 
-}
+
 
 
 
@@ -521,9 +521,10 @@ p{
 
     position:relative;
 
+
     background:
 
-    url("../assets/images/hero.jpg")
+    url("../assets/images/church-building.jpg")
 
     center/cover no-repeat;
 
