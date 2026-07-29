@@ -39,6 +39,9 @@ function updateNavigation() {
         </ul>
 
         <div class="nav-actions">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
             <a href="contact.html" class="btn btn-primary nav-btn">
                 <span>Plan Your Visit</span> <i class="fa-solid fa-arrow-right"></i>
             </a>

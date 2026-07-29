@@ -59,11 +59,13 @@ body{
 
     color:var(--clr-text);
 
-    background:white;
+    background:var(--clr-white);
 
     line-height:1.7;
 
     overflow-x:hidden;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
 
 }
 
@@ -132,7 +134,7 @@ h4{
 
     font-family:var(--font-heading);
 
-    color:var(--clr-primary);
+    color:var(--clr-text-heading);
 
     line-height:1.2;
 
@@ -480,6 +482,125 @@ p{
 .menu-toggle:hover {
     background: var(--clr-primary);
     color: white;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: rgba(0, 58, 112, 0.08);
+    border: 1px solid rgba(0, 58, 112, 0.15);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    color: var(--clr-primary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    outline: none;
+}
+
+.theme-toggle:hover {
+    background: var(--clr-primary);
+    color: #FFFFFF;
+    transform: rotate(15deg) scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 58, 112, 0.25);
+}
+
+/* Dark Mode Theme Overrides */
+[data-theme="dark"] {
+    background-color: var(--clr-light) !important;
+    color: var(--clr-text) !important;
+}
+
+[data-theme="dark"] .header {
+    background: var(--clr-header-bg) !important;
+    border-bottom: 1px solid var(--clr-border);
+}
+
+[data-theme="dark"] .top-bar {
+    background: var(--clr-topbar-bg) !important;
+    border-bottom: 1px solid var(--clr-border);
+}
+
+[data-theme="dark"] .church-name {
+    color: #FFFFFF;
+}
+
+[data-theme="dark"] .nav-menu a {
+    color: #E2E8F0;
+}
+
+[data-theme="dark"] .nav-menu a:hover {
+    color: var(--clr-primary);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .theme-toggle {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #FACC15;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background: #FACC15;
+    color: #0F172A;
+    box-shadow: 0 4px 15px rgba(250, 204, 21, 0.35);
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .sermon-card,
+[data-theme="dark"] .event-card,
+[data-theme="dark"] .ministry-card,
+[data-theme="dark"] .leader-card,
+[data-theme="dark"] .welcome-card,
+[data-theme="dark"] .visit-card,
+[data-theme="dark"] .value-card,
+[data-theme="dark"] .time-card,
+[data-theme="dark"] .contact-card,
+[data-theme="dark"] .info-card {
+    background-color: var(--clr-card-bg) !important;
+    border-color: var(--clr-border) !important;
+    box-shadow: var(--shadow-sm);
+}
+
+[data-theme="dark"] .card-content,
+[data-theme="dark"] .service-content,
+[data-theme="dark"] .sermon-content,
+[data-theme="dark"] .event-content,
+[data-theme="dark"] .ministry-content,
+[data-theme="dark"] .leader-content,
+[data-theme="dark"] .leader-info,
+[data-theme="dark"] .value-card,
+[data-theme="dark"] .time-card {
+    background-color: var(--clr-card-bg) !important;
+}
+
+[data-theme="dark"] .service-content p,
+[data-theme="dark"] .sermon-content p,
+[data-theme="dark"] .event-content p,
+[data-theme="dark"] .ministry-content p,
+[data-theme="dark"] .leader-content p,
+[data-theme="dark"] .section-header p {
+    color: var(--clr-text-light);
+}
+
+[data-theme="dark"] .service-link,
+[data-theme="dark"] .sermon-link,
+[data-theme="dark"] .event-link {
+    color: #60A5FA;
+    border-top-color: var(--clr-border);
+}
+
+[data-theme="dark"] #this-week {
+    background: #091022 !important;
+}
+
+[data-theme="dark"] .footer {
+    background: #040814 !important;
+    border-top: 1px solid var(--clr-border);
 }
 
 
