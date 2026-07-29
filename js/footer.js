@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <i class="fa-solid fa-location-dot"></i>
 
                     RCCG Trinity Sanctuary,
-                    No.1 Redeem Close,
+                    No.1 Redeemed Close,
                     Off Bank Road,
                     Opposite Keystone Bank,
                     Singah Roundabout,
