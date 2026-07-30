@@ -128,6 +128,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                     <li>
+                        <a href="give.html">
+                            Online Giving
+                        </a>
+                    </li>
+
+
+                    <li>
                         <a href="contact.html">
                             Contact
                         </a>

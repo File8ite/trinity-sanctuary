@@ -86,13 +86,12 @@ document.addEventListener("DOMContentLoaded", () => {
         setInterval(updateCountdown, 1000);
     }
 
-    // 4. Contact Form Validation & Toast Notification
-    const contactForm = document.querySelector(".contact-form form");
-    if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
+    // 4. Form Validation & Toast Notification
+    const forms = document.querySelectorAll(".contact-form form, form#facility-booking-form");
+    forms.forEach(form => {
+        form.addEventListener("submit", (e) => {
             e.preventDefault();
 
-            // Create toast container if not existing
             let toast = document.querySelector(".toast-notification");
             if (!toast) {
                 toast = document.createElement("div");
@@ -100,22 +99,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.body.appendChild(toast);
             }
 
+            const isFacilityForm = form.id === "facility-booking-form";
+            const title = isFacilityForm ? "Booking Inquiry Received!" : "Message Sent Successfully!";
+            const message = isFacilityForm 
+                ? "Thank you for your rental inquiry. Our venue management team will contact you shortly with rates and availability." 
+                : "Thank you for contacting RCCG Trinity Sanctuary. We will respond shortly.";
+
             toast.innerHTML = `
                 <i class="fa-solid fa-circle-check"></i>
                 <div>
-                    <strong>Message Sent Successfully!</strong>
-                    <p>Thank you for contacting RCCG Trinity Sanctuary. We will respond shortly.</p>
+                    <strong>${title}</strong>
+                    <p>${message}</p>
                 </div>
             `;
 
             toast.classList.add("show");
-            contactForm.reset();
+            form.reset();
 
             setTimeout(() => {
                 toast.classList.remove("show");
             }, 5000);
         });
-    }
+    });
 
     // 5. Video Modal Player for Sermons
     const playButtons = document.querySelectorAll(".play-button, .watch-sermon-btn");

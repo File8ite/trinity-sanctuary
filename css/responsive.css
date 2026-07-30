@@ -228,7 +228,8 @@ html {
     .sermon-hero,
     .events-hero,
     .gallery-hero,
-    .contact-hero {
+    .contact-hero,
+    .give-hero {
         padding: 7.5rem 0 3.5rem !important;
         min-height: auto;
     }
@@ -243,7 +244,8 @@ html {
     .times-grid,
     .leaders-grid,
     .mission-grid,
-    .category-grid {
+    .category-grid,
+    .categories-grid {
         grid-template-columns: 1fr !important;
         gap: 1.2rem;
     }
@@ -370,5 +372,23 @@ html {
 
     .map-section {
         height: 280px !important;
+    }
+
+    /* Small phone optimizations for Giving Page */
+    .bank-card, .notification-wrapper {
+        padding: 1.6rem 1.1rem !important;
+        border-radius: 20px !important;
+    }
+
+    .account-num {
+        font-size: 1.45rem !important;
+        letter-spacing: 1px !important;
+        word-break: break-all;
+    }
+
+    .bank-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
     }
 }

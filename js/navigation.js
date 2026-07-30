@@ -35,6 +35,7 @@ function updateNavigation() {
             <li><a href="sermons.html">Sermons</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="give.html">Give</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
 
