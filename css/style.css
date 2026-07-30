@@ -26,6 +26,84 @@
 
 }
 
+/* Live Service Banner */
+.live-service-banner {
+    background: linear-gradient(90deg, #C8102E 0%, #A10E26 100%);
+    color: #FFFFFF;
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 1001;
+    box-shadow: 0 4px 15px rgba(200, 16, 46, 0.3);
+}
+
+.banner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.live-pulse-dot {
+    width: 10px;
+    height: 10px;
+    background: #4ADE80;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+    animation: livePulse 1.5s infinite;
+}
+
+@keyframes livePulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(74, 222, 128, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+    }
+}
+
+.btn-live-watch {
+    background: #FFFFFF;
+    color: #C8102E;
+    padding: 0.3rem 0.85rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn-live-watch:hover {
+    background: #FACC15;
+    color: #002B55;
+    transform: scale(1.04);
+}
+
+.close-live-banner {
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: auto;
+    opacity: 0.8;
+}
+
+.close-live-banner:hover {
+    opacity: 1;
+}
+
 
 
 /* ==========================================
@@ -592,6 +670,50 @@ p{
 [data-theme="dark"] .event-link {
     color: #60A5FA;
     border-top-color: var(--clr-border);
+}
+
+[data-theme="dark"] .story-card,
+[data-theme="dark"] .mission-card,
+[data-theme="dark"] .vision-card,
+[data-theme="dark"] .leader-profile,
+[data-theme="dark"] .filter-btn,
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .contact-info-card,
+[data-theme="dark"] .category-card,
+[data-theme="dark"] .notification-wrapper,
+[data-theme="dark"] .feature-item {
+    background-color: var(--clr-card-bg) !important;
+    border-color: var(--clr-border) !important;
+    color: var(--clr-text) !important;
+}
+
+[data-theme="dark"] .filter-btn {
+    color: #E2E8F0;
+    background: #152238;
+}
+
+[data-theme="dark"] .filter-btn.active,
+[data-theme="dark"] .filter-btn:hover {
+    background: var(--clr-secondary) !important;
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .section-tag {
+    background: rgba(230, 57, 70, 0.15) !important;
+    color: #FF6B6B !important;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+    background-color: #0F172A !important;
+    color: #F8FAFC !important;
+    border-color: #334155 !important;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: #64748B !important;
 }
 
 [data-theme="dark"] #this-week {

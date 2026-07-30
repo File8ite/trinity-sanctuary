@@ -1,0 +1,22 @@
+{
+  "name": "RCCG Trinity Sanctuary — Continent 11 HQ",
+  "short_name": "TrinitySanctuary",
+  "description": "Welcome to RCCG Trinity Sanctuary, Continent 11 Headquarters in Kaduna, Nigeria. Join us for worship, fellowship, and spiritual growth.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0B132B",
+  "theme_color": "#003A70",
+  "icons": [
+    {
+      "src": "assets/images/rccg-logo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "assets/images/rccg-logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

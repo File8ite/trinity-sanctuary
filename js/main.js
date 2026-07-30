@@ -86,11 +86,31 @@ document.addEventListener("DOMContentLoaded", () => {
         setInterval(updateCountdown, 1000);
     }
 
-    // 4. Form Validation & Toast Notification
-    const forms = document.querySelectorAll(".contact-form form, form#facility-booking-form");
-    forms.forEach(form => {
+    // 4. Contact Form WhatsApp & Toast Notification Handler
+    const contactForms = document.querySelectorAll(".contact-form form:not(#giving-notification-form)");
+    contactForms.forEach(form => {
         form.addEventListener("submit", (e) => {
             e.preventDefault();
+
+            const nameInput = form.querySelector("input[type='text']");
+            const phoneInput = form.querySelector("input[type='tel']");
+            const emailInput = form.querySelector("input[type='email']");
+            const messageInput = form.querySelector("textarea");
+
+            const name = nameInput ? nameInput.value : "Visitor";
+            const phone = phoneInput ? phoneInput.value : "N/A";
+            const email = emailInput ? emailInput.value : "N/A";
+            const msg = messageInput ? messageInput.value : "";
+
+            const waText = `*NEW CONTACT INQUIRY*\n` +
+                           `*RCCG Trinity Sanctuary*\n\n` +
+                           `👤 *Name:* ${name}\n` +
+                           `📞 *Phone:* ${phone}\n` +
+                           `📧 *Email:* ${email}\n` +
+                           (msg ? `📝 *Message:* ${msg}` : ``);
+
+            const waUrl = `https://wa.me/2348038824894?text=${encodeURIComponent(waText)}`;
+            window.open(waUrl, "_blank");
 
             let toast = document.querySelector(".toast-notification");
             if (!toast) {
@@ -99,17 +119,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.body.appendChild(toast);
             }
 
-            const isFacilityForm = form.id === "facility-booking-form";
-            const title = isFacilityForm ? "Booking Inquiry Received!" : "Message Sent Successfully!";
-            const message = isFacilityForm 
-                ? "Thank you for your rental inquiry. Our venue management team will contact you shortly with rates and availability." 
-                : "Thank you for contacting RCCG Trinity Sanctuary. We will respond shortly.";
-
             toast.innerHTML = `
                 <i class="fa-solid fa-circle-check"></i>
                 <div>
-                    <strong>${title}</strong>
-                    <p>${message}</p>
+                    <strong>Message Sent Successfully!</strong>
+                    <p>Redirected to WhatsApp Hotline (+234 803 882 4894). We will respond shortly.</p>
                 </div>
             `;
 

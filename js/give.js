@@ -73,12 +73,38 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // 2. Giving Transfer Notification Form Handler
+    // 2. Giving Transfer Notification Form Handler (WhatsApp + Toast)
     const givingForm = document.getElementById("giving-notification-form");
     if (givingForm) {
         givingForm.addEventListener("submit", (e) => {
             e.preventDefault();
 
+            const name = document.getElementById("giver-name")?.value || "";
+            const phone = document.getElementById("giver-phone")?.value || "";
+            const category = document.getElementById("giving-category")?.value || "";
+            const amount = document.getElementById("giving-amount")?.value || "";
+            const date = document.getElementById("transfer-date")?.value || "";
+            const ref = document.getElementById("ref-number")?.value || "N/A";
+            const note = document.getElementById("giver-note")?.value || "";
+
+            // Format WhatsApp Message for Church Hotline (+234 803 882 4894)
+            const waText = `*GIVING TRANSFER NOTIFICATION*\n` +
+                           `*RCCG Trinity Sanctuary*\n\n` +
+                           `👤 *Name:* ${name}\n` +
+                           `📞 *Phone:* ${phone}\n` +
+                           `🏷️ *Category:* ${category}\n` +
+                           `💰 *Amount:* ₦${amount}\n` +
+                           `🏦 *Bank:* Eco Bank (0692019725)\n` +
+                           `📅 *Date:* ${date}\n` +
+                           `🧾 *Ref / Teller:* ${ref}\n` +
+                           (note ? `📝 *Note:* ${note}` : ``);
+
+            const waUrl = `https://wa.me/2348038824894?text=${encodeURIComponent(waText)}`;
+
+            // Open WhatsApp in new tab
+            window.open(waUrl, "_blank");
+
+            // Display Toast Notification
             let toast = document.querySelector(".toast-notification");
             if (!toast) {
                 toast = document.createElement("div");
@@ -89,8 +115,8 @@ document.addEventListener("DOMContentLoaded", () => {
             toast.innerHTML = `
                 <i class="fa-solid fa-circle-check"></i>
                 <div>
-                    <strong>Giving Notification Submitted!</strong>
-                    <p>Thank you for your generosity. May God bless and open heaven's windows over you!</p>
+                    <strong>Giving Notification Sent!</strong>
+                    <p>Redirected to WhatsApp Hotline & Church Audit Office. God bless your giving!</p>
                 </div>
             `;
 
