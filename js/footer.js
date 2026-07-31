@@ -147,75 +147,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            <!-- SERVICE TIMES -->
-
-            <div class="footer-links">
-
-
-                <h3>
-                    Service Times
-                </h3>
-
-
-                <ul>
-
-
-                    <li>
-                        Sunday School
-                        <span>
-                            8:00 AM
-                        </span>
-                    </li>
-
-
-                    <li>
-                        Celebration Service
-                        <span>
-                            Sunday • 9:00 AM
-                        </span>
-                    </li>
-
-
-                    <li>
-                        Digging Deep
-                        <span>
-                            Tuesday • 4:30 PM
-                        </span>
-                    </li>
-
-
-                    <li>
-                        Solution Hour
-                        <span>
-                            Wednesday • 12:00 PM
-                        </span>
-                    </li>
-
-
-                    <li>
-                        Faith Clinic
-                        <span>
-                            Thursday • 5:00 PM
-                        </span>
-                    </li>
-
-
-                </ul>
-
-
-            </div>
-
-
-
-
-
             <!-- CONTACT -->
 
             <div class="footer-contact">
 
 
                 <h3>
-                    Contact
+                    Contact & Address
                 </h3>
 
 
@@ -258,6 +196,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
             </div>
 
+
+            <!-- NEWSLETTER SUBSCRIPTION (LEGAL & COMPLIANT) -->
+
+            <div class="footer-newsletter">
+
+                <h3>
+                    Stay Connected
+                </h3>
+
+                <p class="newsletter-desc">
+                    Subscribe to receive weekly sermon notes, event announcements, and spiritual updates directly in your inbox.
+                </p>
+
+                <form id="footer-newsletter-form" class="newsletter-form" action="https://formsubmit.co/info@rccgtrinitysanctuary.com" method="POST">
+                    
+                    <div class="newsletter-input-box">
+                        <input type="email" id="newsletter-email" name="subscriber_email" placeholder="Enter your email address..." required aria-label="Email address for newsletter updates">
+                        <button type="submit" class="btn-subscribe" aria-label="Subscribe to newsletter">
+                            <span>Subscribe</span> <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+
+                    <div class="privacy-consent-box">
+                        <label class="consent-label">
+                            <input type="checkbox" id="newsletter-consent" name="consent_agreed" required>
+                            <span>I agree to receive newsletter updates from RCCG Trinity Sanctuary. I can unsubscribe at any time.</span>
+                        </label>
+                        <span class="privacy-note">
+                            <i class="fa-solid fa-shield-halved"></i> We respect your privacy. Zero spam. Your data is protected under NDPR / GDPR.
+                        </span>
+                    </div>
+
+                </form>
+
+            </div>
 
 
         </div>

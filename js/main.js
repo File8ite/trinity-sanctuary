@@ -136,6 +136,63 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // 4b. Footer Newsletter Subscription Handler (Legal Opt-In & FormSubmit)
+    const newsletterForm = document.getElementById("footer-newsletter-form");
+    if (newsletterForm) {
+        newsletterForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const emailInput = document.getElementById("newsletter-email");
+            const consentCheck = document.getElementById("newsletter-consent");
+
+            if (!emailInput || !emailInput.value.trim()) return;
+            if (consentCheck && !consentCheck.checked) {
+                alert("Please agree to the privacy consent checkbox to subscribe.");
+                return;
+            }
+
+            const subscriberEmail = emailInput.value.trim();
+
+            // Background submission via FormSubmit
+            fetch("https://formsubmit.co/ajax/info@rccgtrinitysanctuary.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    _subject: "NEW NEWSLETTER SUBSCRIBER — RCCG Trinity Sanctuary",
+                    email: subscriberEmail,
+                    consent_agreed: "YES - Consented to receiving weekly updates and sermon outlines",
+                    subscribed_at: new Date().toLocaleString()
+                })
+            }).catch(err => console.log("Background email send", err));
+
+            // Display Toast Notification
+            let toast = document.querySelector(".toast-notification");
+            if (!toast) {
+                toast = document.createElement("div");
+                toast.className = "toast-notification";
+                document.body.appendChild(toast);
+            }
+
+            toast.innerHTML = `
+                <i class="fa-solid fa-envelope-circle-check"></i>
+                <div>
+                    <strong>Subscribed Successfully!</strong>
+                    <p>Thank you! You will receive weekly sermon outlines and Trinity Sanctuary updates at ${subscriberEmail}.</p>
+                </div>
+            `;
+
+            toast.classList.add("show");
+            newsletterForm.reset();
+
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 6000);
+        });
+    }
+
     // 5. Video Modal Player for Sermons
     const playButtons = document.querySelectorAll(".play-button, .watch-sermon-btn");
     if (playButtons.length > 0) {
