@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let isLive = false;
         let serviceTitle = "";
-        let liveUrl = "https://youtube.com/shorts/WA3PF8ebi9g?si=CrLz3ebXIGm8umzB"; // Official YouTube Stream Channel
+        let liveUrl = "https://www.facebook.com/rccgtrinity/live_videos"; // Official YouTube Stream Channel
 
         // Sunday: 8:30 AM (510 mins) - 12:30 PM (750 mins)
         if (day === 0 && timeInMinutes >= 510 && timeInMinutes <= 750) {
