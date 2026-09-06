@@ -374,21 +374,114 @@ html {
         height: 280px !important;
     }
 
-    /* Small phone optimizations for Giving Page */
-    .bank-card, .notification-wrapper {
-        padding: 1.6rem 1.1rem !important;
-        border-radius: 20px !important;
+/* ==========================================================================
+   7. GAMES HUB & ARENA RESPONSIVE SYSTEM
+   ========================================================================== */
+
+@media (max-width: 992px) {
+    .trivia-bento-card {
+        grid-template-columns: 1fr !important;
+        gap: 2.2rem !important;
+        padding: 2rem !important;
     }
 
-    .account-num {
-        font-size: 1.45rem !important;
-        letter-spacing: 1px !important;
-        word-break: break-all;
+    .trivia-bento-preview {
+        order: -1;
     }
 
-    .bank-card-header {
+    .bento-preview-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .arena-nav-container {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .btn-back-hub {
+        align-self: flex-start;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .game-hub-tabs {
+        width: 100%;
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .game-tab-btn {
+        flex: 1;
+        padding: 0.65rem 0.5rem;
+        font-size: 0.8rem;
+        justify-content: center;
+        border-radius: 50px;
+    }
+
+    .game-tab-btn span {
+        display: inline;
+    }
+
+    .service-countdown-banner {
+        flex-direction: column;
+        gap: 0.6rem;
+        padding: 0.8rem 1rem;
+        text-align: center;
+    }
+
+    .scramble-form-box {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .scramble-input,
+    .btn-scramble-submit {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .setup-options-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .team-scoreboard {
+        flex-direction: column;
+    }
+
+    .results-actions {
+        flex-direction: column;
         gap: 0.8rem;
+    }
+
+    .btn-replay {
+        width: 100%;
+    }
+
+    .memory-cards-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.85rem;
+    }
+
+    .memory-card {
+        height: 115px;
+    }
+
+    .memory-card-front,
+    .memory-card-back {
+        padding: 0.8rem;
+        font-size: 0.82rem;
+    }
+
+    .scramble-display-box {
+        padding: 1.8rem 1rem;
+    }
+
+    .scramble-word-display {
+        letter-spacing: 0.15em;
+        font-size: 1.8rem;
     }
 }

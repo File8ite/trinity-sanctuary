@@ -241,4 +241,48 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // 6. Floating Back To Top Button
+    let backToTopBtn = document.getElementById("back-to-top");
+    if (!backToTopBtn) {
+        backToTopBtn = document.createElement("button");
+        backToTopBtn.id = "back-to-top";
+        backToTopBtn.className = "back-to-top";
+        backToTopBtn.setAttribute("aria-label", "Back to top");
+        backToTopBtn.innerHTML = `<i class="fa-solid fa-arrow-up"></i>`;
+        document.body.appendChild(backToTopBtn);
+    }
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 350) {
+            backToTopBtn.classList.add("visible");
+        } else {
+            backToTopBtn.classList.remove("visible");
+        }
+    });
+
+    backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // 7. Performant Scroll Reveal Motion System
+    if ('IntersectionObserver' in window) {
+        const revealElements = document.querySelectorAll("article, .card, .service-card, .sermon-card, .leader-card, .trivia-bento-card, .sermon-trivia-card, .ministry-trivia-card, .events-trivia-card");
+        
+        revealElements.forEach(el => el.classList.add("reveal-on-scroll"));
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("revealed");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: "0px 0px -30px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    }
+
 });

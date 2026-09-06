@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>🎮 Trinity Sanctuary Bible Arcade | Interactive Scripture & Fellowship Games</title>
+    <meta name="description"
+        content="Welcome to Trinity Sanctuary Bible Arcade! Play interactive Christian & Bible games: Bible Trivia Challenge, Scripture Word Scramble, and Memory Verse Match.">
+    <meta name="keywords"
+        content="Bible Arcade, Bible Trivia Game, Scripture Scramble, Memory Verse Game, RCCG Trivia, Christian Quiz, Sunday School Games, Youth Ministry Games, Trinity Sanctuary Kaduna">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rccgtrinitysanctuary.com/trivia.html">
+
+    <!-- Open Graph Social Sharing Cards -->
+    <meta property="og:type" content="game">
+    <meta property="og:site_name" content="RCCG Trinity Sanctuary">
+    <meta property="og:title" content="🎮 Trinity Sanctuary Bible Arcade | Play Interactive Scripture Games!">
+    <meta property="og:description"
+        content="Test your faith & scripture knowledge! Play Bible Trivia, Word Scramble, or Memory Verse Match in Trinity Sanctuary Bible Arcade. 📖✨">
+    <meta property="og:image" content="https://rccgtrinitysanctuary.com/assets/images/church-building.jpg">
+    <meta property="og:url" content="https://rccgtrinitysanctuary.com/trivia.html">
+
+    <!-- Twitter Card Meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="🎮 Play Trinity Sanctuary Bible Arcade!">
+    <meta name="twitter:description"
+        content="Interactive Bible & RCCG Fellowship Games for youth, home cell groups, and personal reflection.">
+    <meta name="twitter:image" content="https://rccgtrinitysanctuary.com/assets/images/church-building.jpg">
+
+    <!-- App Icons & PWA -->
+    <link rel="icon" href="assets/images/rccg-logo.jpeg" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/images/rccg-logo.jpeg">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/trivia.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Scripts -->
+    <script src="js/theme.js"></script>
+    <script src="js/live-banner.js"></script>
+</head>
+
+<body>
+
+    <!-- DYNAMIC NAVIGATION HEADER -->
+    <header class="header" id="header"></header>
+
+    <!-- ==========================================================================
+         VIEW STATE 1: GAMES HUB PREVIEW PAGE (SHOWING ONLY BENTO GRID)
+         ========================================================================== -->
+    <div id="games-hub-view" class="page-view-active">
+        
+        <!-- TRIVIA HERO SECTION -->
+        <section class="trivia-hero">
+            <div class="container">
+                <span class="trivia-hero-badge">
+                    <i class="fa-solid fa-gamepad"></i> Trinity Sanctuary Bible Arcade
+                </span>
+                <h1>Bible Arcade</h1>
+                <p>
+                    Interactive Scripture & Fellowship Games • Watch live animated previews below and tap any card to play!
+                </p>
+            </div>
+        </section>
+
+        <!-- ANIMATED SELF-TEACHING GAME PREVIEW BENTO GRID -->
+        <section class="trivia-section" style="padding-top: 3.5rem;">
+            <div class="container">
+
+                <div class="bento-preview-grid" id="game-preview-bento">
+                    
+                    <!-- BENTO CARD 1: TRIVIA CHALLENGE -->
+                    <div class="bento-game-card" id="bento-card-trivia">
+                        <div>
+                            <div class="bento-card-header">
+                                <span class="bento-card-badge">🏆 Quiz Battle</span>
+                                <i class="fa-solid fa-users" style="color:var(--clr-primary);"></i>
+                            </div>
+                            <h3>Bible Trivia Challenge</h3>
+                            <p>30+ Questions with Solo & Team Host Battle modes. Tap options & earn points!</p>
+                        </div>
+
+                        <!-- Live Self-Teaching Animation Preview -->
+                        <div class="demo-preview-window">
+                            <div class="demo-trivia-q">Q5 • Which prophet called fire from heaven?</div>
+                            <div class="demo-trivia-opt">
+                                <span>B. Elijah (1 Kings 18:38)</span>
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn-launch-bento" id="btn-launch-trivia">
+                            <span>Play Trivia Challenge</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- BENTO CARD 2: WORD SCRAMBLE -->
+                    <div class="bento-game-card" id="bento-card-scramble">
+                        <div>
+                            <div class="bento-card-header">
+                                <span class="bento-card-badge">🔤 60s Speed Word</span>
+                                <i class="fa-solid fa-bolt" style="color:#FACC15;"></i>
+                            </div>
+                            <h3>Scripture Word Scramble</h3>
+                            <p>Unscramble Bible books, prophets, and divine places before the timer runs out!</p>
+                        </div>
+
+                        <!-- Live Self-Teaching Animation Preview -->
+                        <div class="demo-preview-window">
+                            <div class="demo-scramble-word">E G N E S I S</div>
+                            <div class="demo-typing-box"></div>
+                        </div>
+
+                        <button type="button" class="btn-launch-bento" id="btn-launch-scramble">
+                            <span>Play Word Scramble</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- BENTO CARD 3: MEMORY VERSE MATCH -->
+                    <div class="bento-game-card" id="bento-card-memory">
+                        <div>
+                            <div class="bento-card-header">
+                                <span class="bento-card-badge">🧠 3D Card Match</span>
+                                <i class="fa-solid fa-brain" style="color:var(--clr-secondary);"></i>
+                            </div>
+                            <h3>Memory Verse Match</h3>
+                            <p>Flip 3D cards to pair famous Scripture promises with their biblical references!</p>
+                        </div>
+
+                        <!-- Live Self-Teaching Animation Preview -->
+                        <div class="demo-preview-window">
+                            <div class="demo-memory-grid">
+                                <div class="demo-mini-card">
+                                    <div class="demo-mini-inner">
+                                        <div class="demo-mini-front"><i class="fa-solid fa-cross"></i></div>
+                                        <div class="demo-mini-back">Psalm 23:1</div>
+                                    </div>
+                                </div>
+                                <div class="demo-mini-card">
+                                    <div class="demo-mini-inner">
+                                        <div class="demo-mini-front"><i class="fa-solid fa-cross"></i></div>
+                                        <div class="demo-mini-back">The LORD is my shepherd</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn-launch-bento" id="btn-launch-memory">
+                            <span>Play Memory Match</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+
+    <!-- ==========================================================================
+         VIEW STATE 2: DEDICATED JS-GENERATED ACTIVE GAME ARENA (HIDDEN BY DEFAULT)
+         ========================================================================== -->
+    <div id="game-arena-view" class="game-arena-active" style="display: none;">
+        
+        <!-- ARENA STICKY TOP NAV BAR WITH BACK BUTTON -->
+        <section class="arena-nav-bar">
+            <div class="container arena-nav-container">
+                <button type="button" class="btn-back-hub" id="btn-back-hub">
+                    <i class="fa-solid fa-arrow-left"></i> <span>Back to Bible Arcade Hub</span>
+                </button>
+
+                <div class="game-hub-tabs">
+                    <button type="button" class="game-tab-btn active" id="tab-trivia">
+                        <i class="fa-solid fa-trophy"></i> <span>Bible Trivia</span>
+                    </button>
+                    <button type="button" class="game-tab-btn" id="tab-scramble">
+                        <i class="fa-solid fa-font"></i> <span>Word Scramble</span>
+                    </button>
+                    <button type="button" class="game-tab-btn" id="tab-memory">
+                        <i class="fa-solid fa-brain"></i> <span>Memory Match</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- GAME ARENA SECTION -->
+        <section class="trivia-section" style="padding-top: 2.5rem;">
+            <div class="container">
+
+                <!-- 1. BIBLE TRIVIA ARENA VIEW -->
+                <div id="view-trivia" class="game-view-container">
+
+                    <!-- SETUP CARD -->
+                    <div class="trivia-card" id="trivia-setup-card">
+                        <h2 class="setup-title">Choose Your Challenge Mode</h2>
+                        <p class="setup-subtitle">Select your play style to test your Bible mastery!</p>
+
+                        <!-- Mode Selection -->
+                        <div class="setup-group">
+                            <label class="setup-label"><i class="fa-solid fa-users-gear"></i> Select Game Mode</label>
+                            <div class="setup-options-grid">
+                                <div class="setup-option-btn selected" id="mode-solo">
+                                    <i class="fa-solid fa-user-ninja"></i>
+                                    <strong>Solo Challenge</strong>
+                                    <span>Single player test of faith & speed</span>
+                                </div>
+                                <div class="setup-option-btn" id="mode-group">
+                                    <i class="fa-solid fa-people-group"></i>
+                                    <strong>Group / Team Host Mode</strong>
+                                    <span>Team Navy vs. Team Crimson score battle</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question Count Selection -->
+                        <div class="setup-group">
+                            <label class="setup-label"><i class="fa-solid fa-list-check"></i> Select Game Length</label>
+                            <div class="setup-options-grid">
+                                <div class="setup-option-btn qcount-btn selected" data-count="10">
+                                    <i class="fa-solid fa-bolt"></i>
+                                    <strong>10 Questions</strong>
+                                    <span>Quick 15-Minute Warmup</span>
+                                </div>
+                                <div class="setup-option-btn qcount-btn" data-count="20">
+                                    <i class="fa-solid fa-clock"></i>
+                                    <strong>20 Questions</strong>
+                                    <span>Standard 30-Minute Challenge</span>
+                                </div>
+                                <div class="setup-option-btn qcount-btn" data-count="25">
+                                    <i class="fa-solid fa-fire"></i>
+                                    <strong>25 Questions</strong>
+                                    <span>40+ Minute Group Marathon</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Start Button -->
+                        <button type="button" class="btn-start-trivia" id="start-trivia-btn">
+                            <span>Start Trivia Challenge</span> <i class="fa-solid fa-circle-play"></i>
+                        </button>
+                    </div>
+
+                    <!-- GAME ARENA CARD -->
+                    <div class="trivia-card" id="trivia-arena-card" style="display: none;">
+                        <div class="game-header-bar">
+                            <span class="category-tag" id="category-tag"><i class="fa-solid fa-bookmark"></i> Bible History</span>
+                            <span class="question-counter" id="q-counter-text">Question 1 of 10</span>
+                            
+                            <span class="score-badge" id="solo-score-badge">
+                                <i class="fa-solid fa-star"></i> Score: 0
+                            </span>
+                        </div>
+
+                        <div class="team-scoreboard" id="team-scoreboard" style="display: none;">
+                            <div class="team-score-card active-team" id="team-a-card">
+                                <div class="team-name">⚓ Team Navy</div>
+                                <div class="team-points" id="team-a-points">0</div>
+                            </div>
+                            <div class="team-score-card" id="team-b-card">
+                                <div class="team-name">🔥 Team Crimson</div>
+                                <div class="team-points" id="team-b-points">0</div>
+                            </div>
+                        </div>
+
+                        <div class="progress-container">
+                            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                        </div>
+
+                        <h3 class="question-title" id="question-title">Loading Question...</h3>
+                        <div class="options-grid" id="options-grid"></div>
+
+                        <div class="explanation-box" id="explanation-box">
+                            <div class="explanation-header">
+                                <i class="fa-solid fa-book-bible"></i> <span>Scripture & Historical Insight:</span>
+                            </div>
+                            <div class="explanation-text" id="explanation-text"></div>
+                        </div>
+
+                        <button type="button" class="btn-next-question" id="next-question-btn" style="display: none;">
+                            <span>Next Question</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- RESULTS CARD -->
+                    <div class="trivia-card" id="trivia-results-card" style="display: none;">
+                        <div class="results-header">
+                            <div class="score-circle" id="final-score-circle">
+                                <span class="score-circle-number">0</span>
+                                <span class="score-circle-total" id="final-score-total">Out of 100 pts</span>
+                            </div>
+                            <div class="rank-badge" id="final-rank-badge">
+                                <i class="fa-solid fa-trophy"></i> Bible Scholar
+                            </div>
+                            <h2 id="final-celebration-title">Trivia Challenge Complete!</h2>
+                            <p id="final-celebration-sub">Great job reflecting on the Scriptures and Church History!</p>
+                        </div>
+
+                        <div class="share-results-box">
+                            <p><strong>🔥 Challenge Your Friends & Fellow Members!</strong></p>
+                            <button type="button" class="btn-share-wa" id="share-wa-btn">
+                                <i class="fa-brands fa-whatsapp"></i> Share Score on WhatsApp
+                            </button>
+                        </div>
+
+                        <h3 style="font-size: 1.1rem; color: var(--clr-primary); font-weight: 800; margin-top: 2rem;">
+                            📖 Review Questions & Scripture References:
+                        </h3>
+                        <div class="review-list" id="review-list"></div>
+
+                        <div class="results-actions">
+                            <button type="button" class="btn-replay" id="replay-btn">
+                                <i class="fa-solid fa-rotate-right"></i> Play Again
+                            </button>
+                            <a href="sermons.html" class="btn-replay" style="background: var(--clr-secondary); text-decoration: none;">
+                                <i class="fa-solid fa-book-open"></i> Explore Sermons
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 2. SCRIPTURE WORD SCRAMBLE ARENA VIEW -->
+                <div id="view-scramble" class="game-view-container" style="display: none;">
+                    <div class="trivia-card">
+                        <div class="game-header-bar">
+                            <span class="category-tag"><i class="fa-solid fa-font"></i> Word Scramble</span>
+                            <span class="score-badge" style="background:#DCFCE7; border-color:#86EFAC; color:#14532D;">
+                                <i class="fa-solid fa-clock"></i> Time Left: <strong id="scramble-timer-num">60s</strong>
+                            </span>
+                            <span class="score-badge">
+                                <i class="fa-solid fa-star"></i> Score: <strong id="scramble-score-num">0</strong>
+                            </span>
+                        </div>
+
+                        <h2 class="setup-title" style="margin-top: 1rem;">Unscramble the Scripture Word</h2>
+                        <p class="setup-subtitle">Unscramble the Bible book, character, or place before time runs out!</p>
+
+                        <div class="scramble-display-box">
+                            <div class="scramble-word-display" id="scramble-word-display">G E N E S I S</div>
+                            <div class="hint-text" id="scramble-hint-text"><i class="fa-solid fa-lightbulb"></i> Hint: First book of the Holy Bible</div>
+                        </div>
+
+                        <form id="scramble-form" class="scramble-form-box">
+                            <input type="text" id="scramble-user-input" class="scramble-input" placeholder="Type unscrambled word here..." autocomplete="off" required>
+                            <button type="submit" class="btn-scramble-submit">
+                                <span>Submit Word</span> <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+
+                        <div class="scramble-feedback" id="scramble-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- 3. MEMORY VERSE MATCH ARENA VIEW -->
+                <div id="view-memory" class="game-view-container" style="display: none;">
+                    <div class="trivia-card">
+                        <div class="game-header-bar">
+                            <span class="category-tag"><i class="fa-solid fa-brain"></i> Memory Verse Match</span>
+                            <span class="score-badge">
+                                <i class="fa-solid fa-puzzle-piece"></i> Matches: <strong id="memory-matches-count">0 / 6 Pairs</strong>
+                            </span>
+                        </div>
+
+                        <h2 class="setup-title" style="margin-top: 1rem;">Scripture Memory Match</h2>
+                        <p class="setup-subtitle">Tap cards to flip and match famous Bible promise quotes with their Scripture references!</p>
+
+                        <div class="memory-cards-grid" id="memory-cards-grid"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- DYNAMIC FOOTER -->
+    <footer class="footer" id="footer"></footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/navigation.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/trivia.js"></script>
+    <script src="js/games-hub.js"></script>
+</body>
+
+</html>

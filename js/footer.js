@@ -133,6 +133,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         </a>
                     </li>
 
+                    <li>
+                        <a href="trivia.html">
+                            <i class="fa-solid fa-gamepad"></i> Bible Arcade
+                        </a>
+                    </li>
 
                     <li>
                         <a href="contact.html">
